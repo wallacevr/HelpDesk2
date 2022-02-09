@@ -21,11 +21,11 @@ class EmpresasIndex extends LivewireDatatable
 
             Column::name('email')->truncate()->filterable()->searchable(),
 
-            DateColumn::name('created_at')->filterable()
+            DateColumn::name('created_at')->filterable(),
 
-           /* Column::callback(['id', 'name'], function ($id, $name) {
-                return view('table-actions', ['id' => $id, 'name' => $name]);
-            })->unsortable() */
+            Column::callback(['id', 'razaosocial'], function ($id, $name) {
+                return view('livewire\table-actions', ['id' => $id, 'name' => $name]);
+            })->unsortable()
         ];
     }
 }

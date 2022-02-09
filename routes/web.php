@@ -21,5 +21,6 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+Route::get('/empresa/create', [EmpresaController::class, 'create'])->middleware('auth')->name('novaempresa');
 Route::get('empresas',[EmpresaController::class,'index'])->middleware('auth')->name('listar_empresas');
 Route::get('load_cidades',[CidadeController::class,'loadcidades'])->middleware('auth')->name('load_cidades');

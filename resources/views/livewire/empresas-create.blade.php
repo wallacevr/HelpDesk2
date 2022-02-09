@@ -17,23 +17,13 @@
         <div class="row">
           <div class="input-group mb-3 col-sm" >
             <span class="input-group-text" id="basic-addon1">Nome/Razão Social:</span>
-            <input type="text" wire:model.lazy="nome" name="nome" class="form-control" placeholder="Nome" aria-label="Username" aria-describedby="basic-addon1" value="{{ old('nome') }}">
+            <input type="text" wire:model.lazy="razaosocial" name="razaosocial" class="form-control" placeholder="Nome" aria-label="Username" aria-describedby="basic-addon1" >
           </div>
           <div class="input-group mb-3 col-sm">
             <span class="input-group-text" id="basic-addon1">CPF/CNPJ:</span>
-            <input type="text" wire:model.lazy="cpfcnpj" id="cpfcnpj" name="cpfcnpj" class="form-control" placeholder="CPF/CNPJ" aria-label="Username" aria-describedby="basic-addon1" value="{{ old('cpfcnpj') }}">
+            <input type="text" wire:model.lazy="cpfcnpj" id="cnpj" name="cnpj" class="form-control" placeholder="CNPJ" aria-label="Username" aria-describedby="basic-addon1" ">
           </div>
-          <div class="input-group mb-3 col-sm">
-            <label class="input-group-text" for="inputGroupSelect01">Tipos:</label>
-            <select   wire:model.lazy="tipo_id"  class="form-select" id="tipo_id" name="tipo_id" >
-
-                    <option value="">Selecione um Tipo</option>
-                    @foreach ($tipos->all('id','nome') as $tipo)
-                        <option value="{{$tipo->id}}">{{$tipo->nome}}</option>
-                    @endforeach
-                    </select>
-
-          </div>
+          
         </div>
         <div class="row">
 
@@ -64,7 +54,7 @@
 
             <div class="input-group mb-3 col-sm" >
                 <label class="input-group-text" for="inputGroupSelect01">UF:</label>
-                <select   wire:model.lazy="uf" wire:change="filtracidades" class="form-select"  name="uf" id="uf">
+                <select   wire:model.lazy="state_id" wire:change="filtracidades" class="form-select"  name="state_id" id="state_id">
 
                     <option value="">Selecione um Estado</option>
                     @foreach ($states->all('id','name') as $state)
@@ -77,7 +67,7 @@
 
                 <div class="input-group mb-3 col-sm" >
                     <label class="input-group-text" for="inputGroupSelect01">Cidade:</label>
-                    <select wire:model.lazy="municipio" class="form-select"  id="municipio" name="municipio">
+                    <select wire:model.lazy="city_id" class="form-select"  id="city_id" name="city_id">
                         <option value="">Selecione um Município</option>
                         @foreach ($cities->all('id',"name") as $city)
                         <option value="{{ $city->id }}">{{ $city->name}}</option>
@@ -106,18 +96,8 @@
             <input wire:model.lazy="celular" type="tel" class="form-control" placeholder="Celular" name="celular" id="celular" aria-label="Username" aria-describedby="basic-addon1" value="{{ old('celular') }}">
           </div>
         </div>
-        <div class="row">
-          <div class="mb-3 col-sm">
-            <label for="formFile" class="form-label">Contrato Social:</label>
-            <input  wire:model.lazy="contratosocial" type="file" id="formFile" name="contratosocial" value="{{ old('contratosocial') }}">
 
-        </div>
-          <div class="mb-3 col-sm">
-            <label for="formFile" class="form-label">Procuração</label>
-            <input  wire:model.lazy="procuracao"  type="file" id="formFile" name="procuracao" value="{{ old('procuracao') }}">
-          </div>
-        </div>
-        <div    class="row">
+        <div class="row">
 
         <div class="row text-center">
             <div class="col-sm">
@@ -126,7 +106,7 @@
                 &nbsp;
                 <button type="reset" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-full no-underline"><i class="fas fa-eraser"></i> Limpar</button>
                 &nbsp;
-                <a href="{{ route('listar_cliente')}}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full no-underline"><i class="fas fa-arrow-circle-left"></i> Cancelar</a>
+                <a href="{{ route('listar_empresas')}}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full no-underline"><i class="fas fa-arrow-circle-left"></i> Cancelar</a>
             </div>
         </div>
     </div>

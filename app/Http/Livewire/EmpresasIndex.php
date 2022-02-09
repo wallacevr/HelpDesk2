@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace app\Http\Livewire;
+namespace app\Models;
 
-use App\Models\Empresa;
+use app\Models\Empresa;
 use Illuminate\Support\Str;
 use Mediconesystems\LivewireDatatables\Column;
 use Mediconesystems\LivewireDatatables\DateColumn;

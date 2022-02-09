@@ -17,7 +17,7 @@ class EmpresaController extends Controller
 
     public function create(){
 
-        if(Auth::user()->nivel_id==3){
+        if(Auth::user()->nivel_id==1){
             return view('Empresas.create');;
         }else{
            return redirect("home");

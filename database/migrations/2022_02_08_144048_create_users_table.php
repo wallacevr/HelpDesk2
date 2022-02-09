@@ -20,6 +20,15 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+            $table->unsignedBigInteger('nivel_id')->foreignId('nivel_id')->references('id')->on('niveis')->constrained();
+            $table->unsignedBigInteger('empresa_id');
+            $table->foreign('empresa_id')
+            ->references('id')
+            ->on('empresas');
+
+            $table->boolean('ativo');
+           // $table->foreignId('current_team_id')->nullable();
+            $table->string('profile_photo_path', 2048)->nullable();
             $table->timestamps();
         });
     }
